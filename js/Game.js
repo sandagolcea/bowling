@@ -9,7 +9,7 @@ function Game() {
 
   this.totalPoints = 0;
   this.rollsLeft = 2;
-  this.currentFrame = 0;
+  this.frameNr = 0;
 };
 
 Game.prototype.frameCount = function(){
@@ -18,15 +18,17 @@ Game.prototype.frameCount = function(){
   return count;
 };
 
-Game.prototype.knockedPins = function(nrOfPins){
+Game.prototype.knockPins = function(nrOfPins){
   if (this.rollsLeft == 2) {
-    this.frame[0].roll1 = nrOfPins;
+    this.frame[this.frameNr].roll1 = nrOfPins;
     this.rollsLeft--;
   }
   else if (this.rollsLeft == 1)  {
-    this.frame[0].roll2 = nrOfPins;
-    this.rollsLeft--;
+    this.frame[this.frameNr].roll2 = nrOfPins;
+    // calculate frame total and
+    this.frame[this.frameNr].total = this.frame[this.frameNr].roll1 + this.frame[this.frameNr].roll2;
+    // get to the next frame + reset rolls
+    this.frameNr++;
+    this.rollsLeft=2;
   }
-//   // TODO : increment frame nr
-    // reset nr of rollsLeft to 2
 };

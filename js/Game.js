@@ -19,17 +19,26 @@ Game.prototype.frameCount = function(){
 };
 
 Game.prototype.knockPins = function(nrOfPins){
+  // first shot:
   if (this.rollsLeft == 2) {
-    this.frame[this.frameNr].roll1 = nrOfPins;
-    this.rollsLeft--;
+    if (nrOfPins == 10) {
+      // it's a strike ; clean & clear frame
+      this.frame[this.frameNr].roll1 = nrOfPins;
+      this.frame[this.frameNr].roll2 = null;
+      this.frame[this.frameNr].total = nrOfPins;
+      this._nextFrame();
+    }
+    else {
+      this.frame[this.frameNr].roll1 = nrOfPins;
+      this.rollsLeft--;
+    }
   }
+  // second shot:
   else if (this.rollsLeft == 1)  {
     this.frame[this.frameNr].roll2 = nrOfPins;
-    // calculate frame total and
+    // calculate current frame total
     this.frame[this.frameNr].total = this.frame[this.frameNr].roll1 + this.frame[this.frameNr].roll2;
-    // get to the next frame + reset rolls
-    this.frameNr++;
-    this.rollsLeft=2;
+    this._nextFrame();
   }
 };
 
@@ -38,8 +47,11 @@ Game.prototype.calculateTotal =  function(){
   this.frame.forEach(function(eachFrame){
     // console.log(eachFrame.total);
     totalPoints = totalPoints + eachFrame.total;
-    console.log(eachFrame.total);
-    console.log(totalPoints);
   });
   return totalPoints;
-}
+};
+
+Game.prototype._nextFrame = function(){
+  this.frameNr++;
+  this.rollsLeft=2;
+};

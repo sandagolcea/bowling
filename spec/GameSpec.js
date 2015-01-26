@@ -70,9 +70,24 @@ describe("Game", function() {
   });
 
   describe("special case:", function() {
+    
+    it("strike - should end frame", function(){
+      // should set frame.roll2 to null
+      // should set frame.total to 10
+      // should get to the next frame
+      game.knockPins(10);
+      expect(game.frame[0].roll2).toBe(null);
+      expect(game.frame[0].total).toEqual(10);
+      expect(game.frameNr).toEqual(1);
+    });
 
-    xit("strike - should give bonus", function(){
-      
+    it("strike - should give bonus at next frame", function(){
+      game.knockPins(10);
+      game.knockPins(5);
+      game.knockPins(4);
+      // TODO: implement test on next line:
+      // expect(game.frame[0].total).toEqual(19);
+      expect(game.calculateTotal()).toEqual(19);
     });
 
 

@@ -32,3 +32,14 @@ Game.prototype.knockPins = function(nrOfPins){
     this.rollsLeft=2;
   }
 };
+
+Game.prototype.calculateTotal =  function(){
+  totalPoints = 0;
+  this.frame.forEach(function(eachFrame){
+    // console.log(eachFrame.total);
+    totalPoints = totalPoints + eachFrame.total;
+    console.log(eachFrame.total);
+    console.log(totalPoints);
+  });
+  return totalPoints;
+}

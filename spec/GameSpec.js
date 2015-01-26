@@ -56,8 +56,15 @@ describe("Game", function() {
       expect(game.frame[0].total).toEqual(8);
     });
 
-    xit("should calculate the total", function(){
-      
+    it("should calculate the total", function(){
+      // Frame1
+      game.knockPins(6);
+      game.knockPins(2);
+      // Frame2
+      game.knockPins(3);
+      game.knockPins(4);
+      // Total : 6 + 2 + 3 + 4 = 15
+      expect(game.calculateTotal()).toEqual(15);  
     });
 
   });

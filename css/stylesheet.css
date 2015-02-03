@@ -1,0 +1,33 @@
+/****************************
+      General elements
+****************************/
+h1 {
+  text-align: center;
+}
+
+img {
+  width:100%;
+  height: 50%;
+}
+
+/****************************
+      Table properties
+****************************/
+
+table {
+  margin: 0 auto;
+}
+
+
+table, td, th {
+    border: 1px solid black;
+    text-align: center;
+    padding: 5px;
+}
+
+.titles {
+ background-color: black;
+ color: white;
+ font-weight: bold; 
+ padding: 7px;
+}

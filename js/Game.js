@@ -1,12 +1,13 @@
 function Game() {
   nrOfFrames = 10;
   
+  // TODO: change name of frame to frames
   this.frame = [];
   for (i=0; i<nrOfFrames; i++) this.frame[i] = {roll1: 0, roll2: 0, total: 0};
   // This initializes frame to:
   // this.frame[0] = {roll1: 0, roll2: 0, total: 0};
   // this.frame[1] = {roll1: 0, roll2: 0, total: 0};
-
+  
   this.totalPoints = 0;
   this.rollsLeft = 2;
   this.frameNr = 0;
@@ -18,6 +19,8 @@ Game.prototype.frameCount = function(){
   return count;
 };
 
+// TODO: a function that checks how many pins are left in the previous to
+// see if it is a strike or not
 Game.prototype.knockPins = function(nrOfPins){
   // first shot:
   if (this.rollsLeft == 2) {

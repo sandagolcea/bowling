@@ -2,7 +2,11 @@
 Bowling Game (Makers Academy week5)
 
 ##What does this button do? 
-It count and sum the scores of a bowling game of one player (in Javascript).
+It count and sum the scores of a bowling game of one player (in Javascript).  
+
+Screenshot:  
+
+![Alt text](/ScoreCard.png?raw=true "ScoreCard")
 
 ##How to run
 `git clone git@github.com:sandagolcea/bowling.git`  

@@ -2,7 +2,7 @@
 Bowling Game (Makers Academy week5)
 
 ##What does this button do? 
-It count and sum the scores of a bowling game of one player (in Javascript).  
+It counts and sums the scores of a bowling game of one player (in Javascript).  
 
 Screenshot:  
 
